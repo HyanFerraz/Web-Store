@@ -14,7 +14,7 @@ public class ProdutoDAO extends DAO {
 		
 		
 		connection = conexao.conectar();
-		sql = "INSERT INTO JAVA_PRODUTO VALUES (PRODUTO_SEQUENCE.NEXTVAL, ?, ?, ?, ?)";
+		sql = "INSERT INTO JAVA_PRODUTO (PRODUTO_ID, CATEGORIA_ID, NOME, DESCRICAO, PRECO) VALUES (PRODUTO_SEQUENCE.NEXTVAL, ?, ?, ?, ?)";
 		
 		try {
 			ps = connection.prepareStatement(sql);

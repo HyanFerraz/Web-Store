@@ -9,7 +9,7 @@ public class CategoriaDAO extends DAO{
 	public void inserir(Categoria categoria) {
 
 		connection = conexao.conectar();
-		sql = "INSERT INTO JAVA_CATEGORIA VALUES (CATEGORIA_SEQUENCE.NEXTVAL, ?)";
+		sql = "INSERT INTO JAVA_CATEGORIA (CATEGORIA_ID, CATEGORIA) VALUES (CATEGORIA_SEQUENCE.NEXTVAL, ?)";
 		
 		try {
 			ps = connection.prepareStatement(sql);
