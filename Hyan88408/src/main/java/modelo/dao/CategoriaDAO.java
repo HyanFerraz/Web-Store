@@ -1,13 +1,16 @@
 package modelo.dao;
 
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
+import modelo.conexao.Conexao;
 import modelo.entidades.Categoria;
 
 public class CategoriaDAO extends DAO{
 
 	public void inserir(Categoria categoria) {
-
+		Conexao conexao = new Conexao();
 		connection = conexao.conectar();
 		sql = "INSERT INTO JAVA_CATEGORIA (CATEGORIA_ID, CATEGORIA) VALUES (CATEGORIA_SEQUENCE.NEXTVAL, ?)";
 		
@@ -20,9 +23,41 @@ public class CategoriaDAO extends DAO{
 			conexao.desconectar();
 		} catch (SQLException e) {
 			System.out.println("Erro ao inserir categoria " + e) ;
+		}	
+	}
+	
+	public Map<Integer, Categoria> listar() {
+		
+		Map<Integer, Categoria> lista = new HashMap<Integer, Categoria>();
+		Categoria categoria;
+		Conexao conexao = new Conexao();
+		
+		connection = conexao.conectar();
+		sql = "SELECT * FROM JAVA_CATEGORIA";
+
+		try {
+			ps = connection.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				categoria = new Categoria();
+				categoria.setId(rs.getInt("CATEGORIA_ID"));
+				categoria.setCategoria(rs.getString("CATEGORIA"));
+				
+				lista.put(categoria.getId(), categoria);
+				
+				
+			}
+			
+			ps.close();
+			conexao.desconectar();
+		} catch (SQLException e) {
+			System.out.println("Erro ao buscar categorias " + e);
 		}
 		
 		
+		
+		return lista;
 	}
 	
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div>
-		<a href="#">
+		<a href="cadastrarCategoria.jsp">
 			<button>
 				Cadastrar categoria
 			</button>
@@ -16,7 +16,7 @@
 	</div>
 	
 	<div>
-		<a href="#">
+		<a href="cadastrarProduto.jsp">
 			<button>
 				Cadastrar Produto
 			</button>

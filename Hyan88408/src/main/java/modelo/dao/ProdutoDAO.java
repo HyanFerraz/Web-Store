@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.conexao.Conexao;
 import modelo.entidades.Categoria;
 import modelo.entidades.Produto;
 
@@ -12,7 +13,7 @@ public class ProdutoDAO extends DAO {
 	public void inserir (Produto produto)
 	{
 		
-		
+		Conexao conexao = new Conexao();
 		connection = conexao.conectar();
 		sql = "INSERT INTO JAVA_PRODUTO (PRODUTO_ID, CATEGORIA_ID, NOME, DESCRICAO, PRECO) VALUES (PRODUTO_SEQUENCE.NEXTVAL, ?, ?, ?, ?)";
 		
@@ -38,6 +39,7 @@ public class ProdutoDAO extends DAO {
 		List<Produto> lista = new ArrayList<Produto>();
 		Produto produto;
 		Categoria categoria;
+		Conexao conexao = new Conexao();
 		
 		connection = conexao.conectar();
 		sql = "SELECT P.NOME, P.DESCRICAO, P.PRECO, C.CATEGORIA AS CNOME FROM JAVA_PRODUTO P, JAVA_CATEGORIA C WHERE P.CATEGORIA_ID = C.CATEGORIA_ID";
