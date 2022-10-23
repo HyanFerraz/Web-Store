@@ -13,12 +13,14 @@ public class Conexao{
 	
 	private Connection conexao;
 	
+
 	public Connection conectar() {
 		try {
 			Class.forName(driver);
 			conexao = DriverManager.getConnection(url, user, password);			
 			if (!conexao.isClosed()) 
 				System.out.println("Conectado");
+			
 		}
 		catch(ClassNotFoundException e) {
 			System.out.println("Erro ao carregar o driver");
@@ -26,11 +28,12 @@ public class Conexao{
 		catch(SQLException e) {
 			System.out.println("Erro ao estabelecer conexão com o banco de dados");
 		}
-		
 		return conexao;
+		
 	}
 	
-	public void desconectar() {
+
+		public void desconectar() {
 		try {
 			conexao.close();
 			System.out.println("Desconectado");

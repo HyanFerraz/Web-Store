@@ -16,7 +16,7 @@
 		Set<Integer> listaID = lista.keySet();%>
 
 	<div>
-		<form method="post" action="categoria">
+		<form method="post" action="produto">
 			<label>Nome do Produto</label><p>
 			<input type="text" name="nomeProduto"><p>
 			
@@ -37,7 +37,7 @@
 				
 			</select><p>
 			
-			<input type="submit" value="Adicionar"><p>
+			<input type="submit" value="Adicionar" ><p>
 		</form>
 	</div>
 </body>

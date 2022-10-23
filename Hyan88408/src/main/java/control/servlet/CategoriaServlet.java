@@ -2,6 +2,7 @@ package control.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +39,12 @@ public class CategoriaServlet extends HttpServlet {
 		categoria.setCategoria(request.getParameter("nomeCategoria"));
 		
 		new CategoriaDAO().inserir(categoria);
+		
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+		
+		dispatcher.forward(request, response);
+		
 		
 		
 		
