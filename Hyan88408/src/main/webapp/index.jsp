@@ -30,5 +30,13 @@
 			</button>
 		</a>
 	</div>
+
+	<div>
+		<a href="removerProduto.jsp">
+			<button>
+				Remover Pedido
+			</button>
+		</a>
+	</div>
 </body>
 </html>
