@@ -36,6 +36,10 @@
 				<p><%= produto.getPreco() %></p>
 				<p><%= produto.getCategoria().getCategoria() %></p>
 				
+				<%
+				request.setAttribute("produto", produto);
+				%>
+				
 				<label>Quantidade</label>
 				<input type="number" name="quantidade">
 				<input type="submit" value="Adicionar ao pedido">

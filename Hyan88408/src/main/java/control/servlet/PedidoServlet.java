@@ -33,7 +33,7 @@ public class PedidoServlet extends HttpServlet {
 		PedidoDAO pedidoDAO = new PedidoDAO();
 		DetalheDAO detalheDAO = new DetalheDAO();
 		
-		System.out.println(request.getParameter("id"));
+		System.out.println(request.getAttribute("produto"));
 		/*
 		pedido.setNome(request.getParameter("nomeContato"));
 		pedido.setEndereco(request.getParameter("endereco"));
