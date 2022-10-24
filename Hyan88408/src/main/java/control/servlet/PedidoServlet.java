@@ -33,21 +33,18 @@ public class PedidoServlet extends HttpServlet {
 		PedidoDAO pedidoDAO = new PedidoDAO();
 		DetalheDAO detalheDAO = new DetalheDAO();
 		
-		System.out.println(request.getAttribute("produto"));
-		/*
+		
 		pedido.setNome(request.getParameter("nomeContato"));
 		pedido.setEndereco(request.getParameter("endereco"));
 		pedido.setData(request.getParameter("data"));
-		
 		pedidoDAO.inserir(pedido);
 		
 		detalhe.setPedido(pedido);
 		detalhe.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
 		detalhe.setTotal(produto.getPreco() * detalhe.getQuantidade());
 		detalhe.setProduto(produtoDAO.buscar(Integer.parseInt(request.getParameter(""))));
-		
 		detalheDAO.inserir(detalhe);
-		*/
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		
 		dispatcher.forward(request, response);

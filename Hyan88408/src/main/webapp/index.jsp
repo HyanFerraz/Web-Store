@@ -32,9 +32,9 @@
 	</div>
 
 	<div>
-		<a href="removerProduto.jsp">
+		<a href="listarPedidos.jsp">
 			<button>
-				Remover Pedido
+				Listar Pedidos
 			</button>
 		</a>
 	</div>

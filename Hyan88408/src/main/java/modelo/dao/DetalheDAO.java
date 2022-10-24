@@ -40,7 +40,10 @@ public class DetalheDAO extends DAO{
 		Detalhe detalhe;
 		
 		connection = conexao.conectar();
-		sql = "SELECT PE.NOME_CONTATO, PR.NOME AS PRODUTO, PE.DATA, PD.QUANTIDADE, PD.TOTAL FROM JAVA_PEDIDO PE, JAVA_PEDIDODETALHE PD, JAVA_PRODUTO PR WHERE";
+		sql = "SELECT PE.NOME_CONTATO, PR.NOME AS PRODUTO, PE.DATA, PD.QUANTIDADE, PD.TOTAL "
+				+ "FROM JAVA_PEDIDO PE, JAVA_PEDIDODETALHE PD, JAVA_PRODUTO PR "
+				+ "WHERE PE.PEDIDO_ID = PD.PEDIDO_ID AND "
+				+ "PD.PRODUTO_ID = PD.PRODUTO_ID";
 		
 		try {
 			ps = connection.prepareStatement(sql);
@@ -65,11 +68,10 @@ public class DetalheDAO extends DAO{
 			
 			ps.close();
 			conexao.desconectar();
-			return lista;
 		} catch (SQLException e) {
-			System.out.println("Erro ao listar Produtos " + e);
-			return null;
+			System.out.println("Erro ao listar Detalhes " + e);
 		}
+		return lista;
 	}
 
 	public void remover(Detalhe detalhe) {
