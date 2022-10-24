@@ -1,13 +1,11 @@
 package modelo.entidades;
 
-import java.sql.Date;
-
 public class Pedido {
 	
 	private int id;
 	private String nome;
 	private String endereco;
-	private Date data;
+	private String data;
 	
 	public int getId() {
 		return id;
@@ -30,10 +28,10 @@ public class Pedido {
 		this.endereco = endereco;
 	}
 	
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 	

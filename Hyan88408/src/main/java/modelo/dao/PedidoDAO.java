@@ -6,23 +6,33 @@ import modelo.conexao.Conexao;
 import modelo.entidades.Pedido;
 
 public class PedidoDAO extends DAO {
-
 	
-	public void adicionarPedido (Pedido pedido) {
+	public void inserir (Pedido pedido) {
 		
 		Conexao conexao = new Conexao();
 		connection = conexao.conectar();
-		sql = "INSERT INTO JAVA_PEDIDO P AND JAVA_PEDIDODETALHE PD,"
-			+ "(P.PEDIDO_ID, P.NOME_CONTATO, P.ENDERECO_CONTATO, P.DATA) "
-			+ "VALUES (?, ?, ?, ?)";
+		sql = "INSERT INTO JAVA_PEDIDO (PEDIDO_ID, NOME_CONTATO, ENDERECO_CONTATO, DATA) VALUES (PEDIDO_SEQUENCE.NEXTVAL, ?, ?, ?) ";
+		
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, pedido.getNome());
+			ps.setString(2, pedido.getEndereco());
+			ps.setString(3, pedido.getData());
+			ps.execute();
+			
+			ps.close();
+			conexao.desconectar();
+		} catch (SQLException e) {
+			System.out.println("Erro ao inserir pedido " + e);
+		}
 		
 	}
 	
-	public void removerPedido(Pedido pedido) {
-			
+	public void remover(Pedido pedido) {
+		
 		Conexao conexao = new Conexao();
 		connection = conexao.conectar();
-		sql = "DELETE FROM JAVA_PEDIDO P AND JAVA_PEDIDODETALHE PD WHERE P.PEDIDO_ID = PD.PEDIDO_ID = ?";
+		sql = "DELETE FROM JAVA_PEDIDO WHERE PEDIDO_ID = ?";
 		
 		try {
 			ps = connection.prepareStatement(sql);
@@ -35,5 +45,5 @@ public class PedidoDAO extends DAO {
 			System.out.println("Erro ao excluir pedido " + e);
 		}
 	}
-	
+
 }

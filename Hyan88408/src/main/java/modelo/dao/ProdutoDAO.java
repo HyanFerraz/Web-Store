@@ -10,8 +10,7 @@ import modelo.entidades.Produto;
 
 public class ProdutoDAO extends DAO {
 
-	public void inserir (Produto produto)
-	{
+	public void inserir (Produto produto) {
 		
 		Conexao conexao = new Conexao();
 		connection = conexao.conectar();
@@ -42,7 +41,7 @@ public class ProdutoDAO extends DAO {
 		Conexao conexao = new Conexao();
 		
 		connection = conexao.conectar();
-		sql = "SELECT P.NOME, P.DESCRICAO, P.PRECO, C.CATEGORIA AS CNOME FROM JAVA_PRODUTO P, JAVA_CATEGORIA C WHERE P.CATEGORIA_ID = C.CATEGORIA_ID";
+		sql = "SELECT P.PRODUTO_ID, P.NOME, P.DESCRICAO, P.PRECO, C.CATEGORIA FROM JAVA_PRODUTO P, JAVA_CATEGORIA C WHERE P.CATEGORIA_ID = C.CATEGORIA_ID";
 		
 		try {
 			ps = connection.prepareStatement(sql);
@@ -52,10 +51,11 @@ public class ProdutoDAO extends DAO {
 				categoria = new Categoria();
 				produto = new Produto();
 				
-				produto.setNome(rs.getString("P.NOME"));
-				produto.setDescricao(rs.getString("P.DESCRICAO"));
-				produto.setPreco(rs.getDouble("P.PRECO"));
-				categoria.setCategoria(rs.getString("C.CATEGORIA"));
+				produto.setId(rs.getInt("PRODUTO_ID"));
+				produto.setNome(rs.getString("NOME"));
+				produto.setDescricao(rs.getString("DESCRICAO"));
+				produto.setPreco(rs.getDouble("PRECO"));
+				categoria.setCategoria(rs.getString("CATEGORIA"));
 				produto.setCategoria(categoria);
 				lista.add(produto);
 			}
@@ -68,5 +68,32 @@ public class ProdutoDAO extends DAO {
 			return null;
 		}
 			
+	}
+
+	public Produto buscar (int id) {
+		
+		Produto produto = new Produto();
+		Categoria categoria = new Categoria();
+		Conexao conexao = new Conexao();
+		connection = conexao.conectar();
+		sql = "SELECT P.NOME, P.DESCRICAO, P.PRECO, C.CATEGORIA FROM JAVA_PRODUTO P, JAVA_CATEGORIA C WHERE P.CATEGORIA_ID = C.CATEGORIA_ID AND P.PRODUTO_ID = ?";
+		
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+			
+			produto.setNome(rs.getString("NOME"));
+			produto.setDescricao(rs.getString("DESCRICAO"));
+			produto.setPreco(rs.getDouble("PRECO"));
+			categoria.setCategoria(rs.getString("CATEGORIA"));
+			produto.setCategoria(categoria);
+			
+			
+		} catch (SQLException e) {
+			System.out.println("Erro ao buscar produto por ID " + e);
+		}
+		
+		return produto;
 	}
 }
