@@ -21,15 +21,16 @@
 	%>
 			
 		<div class="Lista Produtos">
-			<form action="pedido" >
+			<form action="removerPedido" >
 				<p><%= detalhe.getPedido().getNome() %></p>
 				<p><%= detalhe.getProduto().getNome() %></p>
 				<p><%= detalhe.getPedido().getData() %></p>
 				<p><%= detalhe.getQuantidade() %></p>
 				<p><%= detalhe.getTotal() %></p>
 				
-				<a href=""><button value="Remover pedido"></button></a>
+				<input type="hidden" value="<%= detalhe.getPedido().getId() %>" name="id">
 				
+				<input type="submit" value="Remover pedido">				
 			</form>
 		</div>
 	<% } %>

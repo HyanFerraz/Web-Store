@@ -11,7 +11,7 @@ public class PedidoDAO extends DAO {
 		
 		Conexao conexao = new Conexao();
 		connection = conexao.conectar();
-		sql = "INSERT INTO JAVA_PEDIDO (PEDIDO_ID, NOME_CONTATO, ENDERECO_CONTATO, DATA) VALUES (PEDIDO_SEQUENCE.NEXTVAL, ?, ?, ?) ";
+		sql = "INSERT INTO JAVA_PEDIDO (PEDIDO_ID, NOME_CONTATO, ENDERECO_CONTATO, DATA) VALUES (PEDIDO_SEQUENCE.NEXTVAL, ?, ?, TO_DATE( ? , 'YYYY/MM/DD')) ";
 		
 		try {
 			ps = connection.prepareStatement(sql);
@@ -21,11 +21,11 @@ public class PedidoDAO extends DAO {
 			ps.execute();
 			
 			ps.close();
-			conexao.desconectar();
 		} catch (SQLException e) {
 			System.out.println("Erro ao inserir pedido " + e);
 		}
 		
+		conexao.desconectar();
 	}
 	
 	public void remover(Pedido pedido) {
@@ -40,10 +40,38 @@ public class PedidoDAO extends DAO {
 			ps.execute();
 			
 			ps.close();
-			conexao.desconectar();
 		} catch (SQLException e) {
 			System.out.println("Erro ao excluir pedido " + e);
 		}
+		
+		conexao.desconectar();
 	}
 
+	public Pedido buscar() {
+		
+		Pedido pedido = new Pedido();
+		Conexao conexao = new Conexao();
+		connection = conexao.conectar();
+		sql = "SELECT * FROM JAVA_PEDIDO WHERE PEDIDO_ID = (SELECT MAX(PEDIDO_ID) FROM JAVA_PEDIDO)";
+		
+		try {
+			ps = connection.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				pedido.setId(rs.getInt("PEDIDO_ID"));
+				pedido.setNome(rs.getString("NOME_CONTATO"));
+				pedido.setEndereco(rs.getString("ENDERECO_CONTATO"));
+				pedido.setData(rs.getString("DATA"));
+			}
+			
+			ps.close();
+			
+		} catch (SQLException e) {
+			System.out.println("Erro ao buscar produto por ID " + e);
+		}
+		
+		conexao.desconectar();
+		return pedido;
+	}
 }

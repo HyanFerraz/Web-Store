@@ -23,10 +23,10 @@ public class Conexao{
 			
 		}
 		catch(ClassNotFoundException e) {
-			System.out.println("Erro ao carregar o driver");
+			System.out.println("Erro ao carregar o driver " + e);
 		}
 		catch(SQLException e) {
-			System.out.println("Erro ao estabelecer conexão com o banco de dados");
+			System.out.println("Erro ao estabelecer conexão com o banco de dados " + e);
 		}
 		return conexao;
 		

@@ -25,11 +25,11 @@ public class ProdutoDAO extends DAO {
 			ps.execute();
 			
 			ps.close();
-			conexao.desconectar();
 		} catch (SQLException e) {
 			System.out.println("Erro ao inserir produto " + e);
 		}
 		
+		conexao.desconectar();
 		
 	}
 
@@ -61,12 +61,14 @@ public class ProdutoDAO extends DAO {
 			}
 			
 			ps.close();
-			conexao.desconectar();
-			return lista;
+			
 		} catch (SQLException e) {
 			System.out.println("Erro ao listar Produtos " + e);
-			return null;
+			
 		}
+		
+		conexao.desconectar();
+		return lista;
 			
 	}
 
@@ -83,17 +85,22 @@ public class ProdutoDAO extends DAO {
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
 			
-			produto.setNome(rs.getString("NOME"));
-			produto.setDescricao(rs.getString("DESCRICAO"));
-			produto.setPreco(rs.getDouble("PRECO"));
-			categoria.setCategoria(rs.getString("CATEGORIA"));
-			produto.setCategoria(categoria);
+			while (rs.next()) {
+				produto.setId(id);
+				produto.setNome(rs.getString("NOME"));
+				produto.setDescricao(rs.getString("DESCRICAO"));
+				produto.setPreco(rs.getDouble("PRECO"));
+				categoria.setCategoria(rs.getString("CATEGORIA"));
+				produto.setCategoria(categoria);
+			}
 			
+			ps.close();			
 			
 		} catch (SQLException e) {
 			System.out.println("Erro ao buscar produto por ID " + e);
 		}
 		
+		conexao.desconectar();
 		return produto;
 	}
 }

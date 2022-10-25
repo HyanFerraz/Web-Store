@@ -20,10 +20,13 @@ public class CategoriaDAO extends DAO{
 			ps.execute();
 			
 			ps.close();
-			conexao.desconectar();
+			
 		} catch (SQLException e) {
 			System.out.println("Erro ao inserir categoria " + e) ;
-		}	
+		}
+		
+		conexao.desconectar();
+		
 	}
 	
 	public Map<Integer, Categoria> listar() {
@@ -46,17 +49,14 @@ public class CategoriaDAO extends DAO{
 				
 				lista.put(categoria.getId(), categoria);
 				
-				
 			}
 			
 			ps.close();
-			conexao.desconectar();
 		} catch (SQLException e) {
 			System.out.println("Erro ao buscar categorias " + e);
 		}
 		
-		
-		
+		conexao.desconectar();
 		return lista;
 	}
 	

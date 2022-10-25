@@ -19,18 +19,17 @@
 	%>
 	
 	
-	<label>Nome</label><p>
-	<input type="text" name="nomeContato"><p>
-	<label>Endereco</label><p>
-	<input type="text" name="endereco"><p>
-	<input type="date" name="data">
+	<form action="adicionarPedido">
+		<label>Nome</label><p>
+		<input type="text" name="nomeContato"><p>
+		<label>Endereco</label><p>
+		<input type="text" name="endereco"><p>
+		<input type="date" name="data">
 	
-	<%
-	for (Produto produto : lista) {
-	%>
-			
-		<div class="Lista Produtos">
-			<form action="pedido" >
+		<%
+		for (Produto produto : lista) {
+		%>
+			<div class="Lista Produtos">
 				<p><%= produto.getNome() %></p>
 				<p><%= produto.getDescricao()%></p>
 				<p><%= produto.getPreco() %></p>
@@ -43,9 +42,9 @@
 				<input type="submit" value="Adicionar ao pedido">
 				
 				
-			</form>
-		</div>
-	<% } %>
+			</div>
+		<% } %>
+	</form>
 		
 </body>
 </html>

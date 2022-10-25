@@ -26,11 +26,14 @@ public class DetalheDAO extends DAO{
 			ps.setInt(3, detalhe.getQuantidade());
 			ps.setDouble(4, detalhe.getTotal());
 			ps.execute();
-					
+			
+			ps.close();
+			
 		} catch (SQLException e) {
 			System.out.println("Erro ao inserir detalhe " + e);
 		}
 		
+		conexao.desconectar();
 	}
 
 	public List<Detalhe> listar () {
@@ -40,10 +43,9 @@ public class DetalheDAO extends DAO{
 		Detalhe detalhe;
 		
 		connection = conexao.conectar();
-		sql = "SELECT PE.NOME_CONTATO, PR.NOME AS PRODUTO, PE.DATA, PD.QUANTIDADE, PD.TOTAL "
-				+ "FROM JAVA_PEDIDO PE, JAVA_PEDIDODETALHE PD, JAVA_PRODUTO PR "
-				+ "WHERE PE.PEDIDO_ID = PD.PEDIDO_ID AND "
-				+ "PD.PRODUTO_ID = PD.PRODUTO_ID";
+		sql = "SELECT PE.NOME_CONTATO, PR.NOME AS PRODUTO,  TO_DATE(PE.DATA, 'YYYY/MM/DD') AS DATA, PD.QUANTIDADE, PD.TOTAL, PD.PEDIDO_ID  "
+				+ "FROM JAVA_PEDIDODETALHE PD, JAVA_PEDIDO PE, JAVA_PRODUTO PR "
+				+ "WHERE PD.PEDIDO_ID = PE.PEDIDO_ID AND PD.PRODUTO_ID = PR.PRODUTO_ID";
 		
 		try {
 			ps = connection.prepareStatement(sql);
@@ -55,8 +57,9 @@ public class DetalheDAO extends DAO{
 				pedido = new Pedido();
 				
 				pedido.setNome(rs.getString("NOME_CONTATO"));
-				produto.setNome(rs.getString("PRODUTO"));
+				pedido.setId(rs.getInt("PEDIDO_ID"));
 				pedido.setData(rs.getString("DATA"));
+				produto.setNome(rs.getString("PRODUTO"));
 				detalhe.setQuantidade(rs.getInt("QUANTIDADE"));
 				detalhe.setTotal(rs.getDouble("TOTAL"));
 				
@@ -67,10 +70,12 @@ public class DetalheDAO extends DAO{
 			}
 			
 			ps.close();
-			conexao.desconectar();
+			
 		} catch (SQLException e) {
 			System.out.println("Erro ao listar Detalhes " + e);
 		}
+		
+		conexao.desconectar();
 		return lista;
 	}
 
@@ -86,11 +91,11 @@ public class DetalheDAO extends DAO{
 			ps.execute();
 			
 			ps.close();
-			conexao.desconectar();
 		} catch (SQLException e) {
 			System.out.println("Erro ao remover detalhe de pedido " + e);
 			}
 		
+		conexao.desconectar();
 		
 	}
 }

@@ -16,35 +16,36 @@ import modelo.entidades.Detalhe;
 import modelo.entidades.Pedido;
 import modelo.entidades.Produto;
 
-@WebServlet(name = "pedido", urlPatterns = { "/pedido" })
-public class PedidoServlet extends HttpServlet {
+@WebServlet(name = "adicionarPedido", urlPatterns = { "/adicionarPedido" })
+public class AdicionarPedidoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public PedidoServlet() {
+    public AdicionarPedidoServlet() {
         super();
     }
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	
 		Pedido pedido = new Pedido();
-		Detalhe detalhe = new Detalhe();
+		PedidoDAO pedidoDAO = new PedidoDAO();
+		Detalhe detalhe = new Detalhe();		
+		DetalheDAO detalheDAO = new DetalheDAO();
 		Produto produto = new Produto();
 		ProdutoDAO produtoDAO = new ProdutoDAO();
-		PedidoDAO pedidoDAO = new PedidoDAO();
-		DetalheDAO detalheDAO = new DetalheDAO();
 		
-		
+		produto = produtoDAO.buscar(Integer.parseInt(request.getParameter("produto")));
+
 		pedido.setNome(request.getParameter("nomeContato"));
 		pedido.setEndereco(request.getParameter("endereco"));
 		pedido.setData(request.getParameter("data"));
 		pedidoDAO.inserir(pedido);
 		
-		detalhe.setPedido(pedido);
+		detalhe.setPedido(pedidoDAO.buscar());
 		detalhe.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
-		detalhe.setTotal(produto.getPreco() * detalhe.getQuantidade());
-		detalhe.setProduto(produtoDAO.buscar(Integer.parseInt(request.getParameter(""))));
+		detalhe.setProduto(produto);
+		detalhe.setTotal(detalhe.getProduto().getPreco() * detalhe.getQuantidade());
 		detalheDAO.inserir(detalhe);
-		
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		
 		dispatcher.forward(request, response);
