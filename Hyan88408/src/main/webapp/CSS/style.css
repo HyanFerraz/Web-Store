@@ -13,7 +13,7 @@ body {
 .index_div {
     display: flex;
     flex-direction: column;
-    background-color: lightgrey;
+    background-color: lightgray;
     width: 30%;
     height: 50vh;
 
@@ -40,6 +40,9 @@ a{
     margin-top: 3vh;
     margin-bottom: 3vh;
     position: relative;
+    padding: 5px;
+    border: 2px solid #00b4d8;
+    border-radius: 30px;
 }
 
 .index_buttons {
@@ -48,9 +51,6 @@ a{
     align-items: center;
 	width: 15vw;
 	height: 100%;
-    padding: 5px;
-    border: 2px solid #00b4d8;
-    border-radius: 30px;
     text-decoration: none;    
 }
 
