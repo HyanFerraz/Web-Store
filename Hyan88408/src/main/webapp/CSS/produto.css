@@ -17,20 +17,23 @@ body {
 .cliente {
     height: 15vh;
     width: 100%;
-    display: inline-flex;
-    justify-items: center;
-    align-items: space-between;
+    flex-direction: row;
+    align-content: center;
+    padding: 20px;
 }
 
 .lista_produto {
-    display: flexbox;
+    display: inline-flexbox;
+    flex-direction: row;
+    justify-content: right;
+    align-content: space-between;
     margin: 10px;
 }
 
 .produto {
-    display: inline-flexbox;
-    justify-content: right;
-    align-content: space-between;
+    display: flexbox;
+    justify-content: center;
+    flex-direction: column;
     margin: 3px;
     padding: 2%;
     height: 30vh;
