@@ -23,8 +23,7 @@ body {
 }
 
 .lista_produto {
-    display: flex;
-
+    display: flexbox;
     justify-content: center;
     align-items: center;
     padding: 5%;
