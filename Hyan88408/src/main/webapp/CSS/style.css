@@ -3,17 +3,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: lightgray;
+    background-color: whitesmoke;
 }
 
 body {
-    background-color: lightgray;
+    background-color: whitesmoke;
 }
 
 .index_div {
     display: flex;
     flex-direction: column;
-
+    background-color: lightgrey;
     width: 30%;
     height: 50vh;
 

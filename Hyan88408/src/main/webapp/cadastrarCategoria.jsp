@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
+	<div class="categoria_div">
 		<form method="post" action="categoria">
 			<label>Nome da Categoria</label><p>
 			<input type="text" name="nomeCategoria"><p>
