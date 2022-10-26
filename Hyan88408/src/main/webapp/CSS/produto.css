@@ -19,7 +19,7 @@ body {
     width: 100%;
     display: inline-flex;
     justify-items: center;
-    align-content: space-between;
+    align-items: space-between;
 }
 
 .lista_produto {
@@ -30,7 +30,7 @@ body {
 .produto {
     display: inline-flexbox;
     justify-content: right;
-    align-items: center;
+    align-content: space-between;
     margin: 3px;
     padding: 2%;
     height: 30vh;
