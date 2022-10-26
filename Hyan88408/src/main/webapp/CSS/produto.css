@@ -18,12 +18,12 @@ body {
     height: 15vh;
     width: 100%;
     display: inline-flex;
-    justify-items: right;
+    justify-items: center;
     align-content: space-between;
 }
 
 .lista_produto {
-    display: flexbox;
+    display: inline-flexbox;
     justify-content: center;
     align-items: center;
     padding: 2%;
