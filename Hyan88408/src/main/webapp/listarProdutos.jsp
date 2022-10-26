@@ -30,9 +30,9 @@
 				<input type="date" name="data">
 			</div>
 			
-			<div>
+			<div class="lista_produto">
 				<% for (Produto produto : lista) { %>
-					<div class="lista_produto">
+					<div class="produto">
 						<p><%= produto.getNome() %></p>
 						<p><%= produto.getDescricao()%></p>
 						<p><%= produto.getPreco() %></p>
