@@ -23,7 +23,7 @@ body {
 }
 
 .lista_produto {
-    display: inline-flexbox;
+    display: flexbox;
     padding: 2%;
     height: 30vh;
     width: 20vw;
