@@ -12,7 +12,7 @@
 		<form method="post" action="categoria">
 			<label>Nome da Categoria</label><p>
 			<input type="text" name="nomeCategoria"><p>
-			<input type="submit" value="Adicionar"><p>
+			<input type="submit" value="Adicionar" class="button"><p>
 		</form>
 	</div>
 </body>
