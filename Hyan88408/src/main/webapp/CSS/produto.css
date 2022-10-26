@@ -23,7 +23,7 @@ body {
 }
 
 .lista_produto {
-    display: inline-flexbox;
+    display: flexbox;
     flex-direction: row;
     justify-content: right;
     align-content: space-between;
@@ -31,7 +31,8 @@ body {
 }
 
 .produto {
-    display: flexbox;
+    display: inline-flexbox;
+    flex-direction: column;
     justify-content: center;
     flex-direction: column;
     margin: 3px;
