@@ -8,3 +8,9 @@
 body {
     background-color: white;
 }
+
+.categoria_div {
+    position: relative;
+    left: 30vw;
+    top: 40vh;
+}
