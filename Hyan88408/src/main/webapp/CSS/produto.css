@@ -24,6 +24,14 @@ body {
 
 .lista_produto {
     display: flexbox;
+    margin: 10px;
+}
+
+.produto {
+    display: flexbox;
+    justify-content: right;
+    align-items: center;
+    margin: 3px;
     padding: 2%;
     height: 30vh;
     width: 20vw;
@@ -33,11 +41,4 @@ body {
     margin-right: 10px;
     border: 2px solid #00b4d8;
     border-radius: 30px;
-}
-
-.produto {
-    display: flexbox;
-    justify-content: right;
-    align-items: center;
-    margin: 3px;
 }
