@@ -19,31 +19,31 @@
 	List <Produto> lista = dao.listar();
 	%>
 	
-	
-	<form action="adicionarPedido">
-		<div class="cliente">
-			<label>Nome</label><p>
-			<input type="text" name="nomeContato"><p>
-			<label>Endereco</label><p>
-			<input type="text" name="endereco"><p>
-			<input type="date" name="data">
-		</div>
-	
-		<%
-		for (Produto produto : lista) {
-		%>
-			<div class="lista_produto">
-				<p><%= produto.getNome() %></p>
-				<p><%= produto.getDescricao()%></p>
-				<p><%= produto.getPreco() %></p>
-				<p><%= produto.getCategoria().getCategoria() %></p>
-				<label>Quantidade</label>
-				<input type="hidden" name="produto" value="<%= produto.getId() %>">
-				<input type="number" name="quantidade">
-				<input type="submit" value="Adicionar ao pedido" class="button">
+	<div>
+
+		<form action="adicionarPedido">
+			<div class="cliente">
+				<label>Nome</label><p>
+				<input type="text" name="nomeContato"><p>
+				<label>Endereco</label><p>
+				<input type="text" name="endereco"><p>
+				<input type="date" name="data">
 			</div>
-		<% } %>
-	</form>
-		
+	
+			<% for (Produto produto : lista) { %>
+				<div class="lista_produto">
+					<p><%= produto.getNome() %></p>
+					<p><%= produto.getDescricao()%></p>
+					<p><%= produto.getPreco() %></p>
+					<p><%= produto.getCategoria().getCategoria() %></p>
+					<label>Quantidade</label>
+					<input type="hidden" name="produto" value="<%= produto.getId() %>">
+					<input type="number" name="quantidade">
+					<input type="submit" value="Adicionar ao pedido" class="button">
+				</div>
+			<% } %>
+		</form>
+	</div>
+	
 </body>
 </html>
