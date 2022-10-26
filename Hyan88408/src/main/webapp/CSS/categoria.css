@@ -13,4 +13,6 @@ body {
     position: relative;
     left: 30vw;
     top: 40vh;
+    width: 40vw;    
+    height: 20vh;
 }
