@@ -14,9 +14,9 @@ body {
 .categoria_div {
     position: relative;
     left: 30vw;
-    top: 40vh;
-    width: 40vw;    
-    height: 20vh;
+    top: 35vh;
+    width: 20vw;    
+    height: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
