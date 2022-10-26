@@ -28,7 +28,7 @@ body {
 }
 
 .produto {
-    display: flexbox;
+    display: inline-flexbox;
     justify-content: right;
     align-items: center;
     margin: 3px;
