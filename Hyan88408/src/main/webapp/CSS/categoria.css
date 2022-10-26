@@ -5,9 +5,6 @@
     background-color: whitesmoke;
     font-size: 18px;
     color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 body {
@@ -32,9 +29,15 @@ body {
 }
 
 label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 10px;
 }
 
 input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 10px;
 }
