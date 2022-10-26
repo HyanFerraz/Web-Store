@@ -13,11 +13,15 @@ body {
 
 .categoria_div {
     position: relative;
-    left: 30vw;
+    left: 40vw;
     top: 35vh;
     width: 20vw;    
     height: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+label {
+    margin: 10px;
 }
