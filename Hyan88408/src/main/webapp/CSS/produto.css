@@ -24,8 +24,6 @@ body {
 
 .lista_produto {
     display: inline-flex;
-    justify-content: center;
-    align-items: center;
     padding: 2%;
     height: 30vh;
     width: 20vw;
