@@ -30,25 +30,32 @@ body {
     border-color: #00b4d8 ;
 }
 
+a{
+	font-size: 20px;
+	color: black;
+}
+
+.div_button {
+    height: 10vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    position: relative;
+}
+
 .index_buttons {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15vw;
-    height: 10vh;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
+	width: 15vw;
+	height: 100%;
     padding: 5px;
     border: 2px solid #00b4d8;
     border-radius: 30px;
-    text-decoration: none;
+    text-decoration: none;    
 }
 
 .index_buttons:hover {
     background-color: #00b4d8;
+    
 }
 
-button {
-    font-size: 20px;
-    border: none;
-}

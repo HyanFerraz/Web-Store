@@ -9,35 +9,27 @@
 </head>
 <body>
 	<div class="index_div">
-		<div>
+		<div class="div_button">
 			<a href="cadastrarCategoria.jsp" class="index_buttons">
-				<button>
-					Cadastrar categoria
-				</button>
+				Cadastrar categoria
 			</a>
 		</div>
 		
-		<div>
+		<div class="div_button">
 			<a href="cadastrarProduto.jsp" class="index_buttons">
-				<button>
-					Cadastrar Produto
-				</button>
+				Cadastrar Produto
 			</a>
 		</div>
 		
-		<div>
+		<div class="div_button">
 			<a href="listarProdutos.jsp" class="index_buttons">
-				<button >
-					Listar Produtos
-				</button>
+				Listar Produtos
 			</a>
 		</div>
 		
-		<div>
+		<div class="div_button">
 			<a href="listarPedidos.jsp" class="index_buttons">
-				<button>
-					Listar Pedidos
-				</button>
+				Listar Pedidos
 			</a>
 		</div>
 	</div>
