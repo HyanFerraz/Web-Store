@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: lightgray;
+    background-color: whitesmoke;
 }
 
 body {
@@ -15,4 +15,5 @@ body {
     top: 40vh;
     width: 40vw;    
     height: 20vh;
+    background-color: ;
 }
