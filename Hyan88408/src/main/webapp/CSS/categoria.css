@@ -5,6 +5,9 @@
     background-color: whitesmoke;
     font-size: 18px;
     color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 body {
