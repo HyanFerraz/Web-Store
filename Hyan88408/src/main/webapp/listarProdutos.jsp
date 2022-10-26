@@ -10,7 +10,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="CSS/produtos.css">
+<link rel="stylesheet" href="CSS/produto.css">
 </head>
 <body>
 		
@@ -40,7 +40,7 @@
 				<label>Quantidade</label>
 				<input type="hidden" name="produto" value="<%= produto.getId() %>">
 				<input type="number" name="quantidade">
-				<input type="submit" value="Adicionar ao pedido">
+				<input type="submit" value="Adicionar ao pedido" class="button">
 			</div>
 		<% } %>
 	</form>
