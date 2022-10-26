@@ -34,10 +34,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30vw;
-    height: 15vh;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+    width: 15vw;
+    height: 10vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
     padding: 5px;
     border: 2px solid #00b4d8;
     border-radius: 30px;
