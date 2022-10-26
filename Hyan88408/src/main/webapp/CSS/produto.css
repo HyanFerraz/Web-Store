@@ -23,6 +23,10 @@ body {
 }
 
 .lista_produto {
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
     height: 30vh;
     width: 20vw;
     margin-top: 5px;
