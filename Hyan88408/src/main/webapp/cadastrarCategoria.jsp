@@ -5,10 +5,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" href="CSS/categoria.css">
+<link rel="stylesheet" href="CSS/cadastro.css">
 </head>
 <body>
-	<div class="categoria_div">
+	<div class="cadastro_div">
 		<form method="post" action="categoria">
 			<label>Nome da Categoria</label><p>
 			<input type="text" name="nomeCategoria"><p>

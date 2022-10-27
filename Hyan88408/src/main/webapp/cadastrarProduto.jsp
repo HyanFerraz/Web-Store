@@ -9,13 +9,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="CSS/cadastro.css">
 </head>
 <body>
 
 	<%	Map<Integer, Categoria> lista = new CategoriaDAO().listar();
 		Set<Integer> listaID = lista.keySet();%>
 
-	<div>
+	<div class="cadastro_div">
 		<form method="post" action="produto">
 			<label>Nome do Produto</label><p/>
 			<input type="text" name="nomeProduto"><p/>
@@ -37,7 +38,7 @@
 				
 			</select><p>
 			
-			<input type="submit" value="Adicionar" ><p/>
+			<input type="submit" value="Adicionar" class="button" ><p/>
 		</form>
 	</div>
 </body>
