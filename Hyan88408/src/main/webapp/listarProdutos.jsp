@@ -30,18 +30,19 @@
 				<input type="date" name="data">
 			</div>
 			
+			
 			<div class="lista_produto">
 				<% for (Produto produto : lista) { %>
-					<div class="produto">
-						<p><%= produto.getNome() %></p>
-						<p><%= produto.getDescricao()%></p>
-						<p><%= produto.getPreco() %></p>
-						<p><%= produto.getCategoria().getCategoria() %></p>
-						<label>Quantidade</label>
-						<input type="hidden" name="produto" value="<%= produto.getId() %>">
-						<input type="number" name="quantidade">
-						<input type="submit" value="Adicionar ao pedido" class="button">
-					</div>
+					
+					<p><%= produto.getNome() %></p>
+					<p><%= produto.getDescricao()%></p>
+					<p><%= produto.getPreco() %></p>
+					<p><%= produto.getCategoria().getCategoria() %></p>
+					<label>Quantidade</label>
+					<input type="hidden" name="produto" value="<%= produto.getId() %>">
+					<input type="number" name="quantidade">
+					<input type="submit" value="Adicionar ao pedido" class="button">
+				
 				<% } %>
 			</div>
 		</form>
