@@ -22,8 +22,8 @@
 		</div>
 		
 		<div class="div_button">
-			<a href="listarProdutos.jsp" class="index_buttons">
-				Listar Produtos
+			<a href="cadastroPedido.jsp" class="index_buttons">
+				Gerar Pedido
 			</a>
 		</div>
 		
