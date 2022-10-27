@@ -8,6 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="CSS/listar.css">
 </head>
 <body>
 		
@@ -16,11 +17,12 @@
 	List <Detalhe> lista = dao.listar();
 	%>
 	
-	<%
-	for (Detalhe detalhe : lista) {
-	%>
+	<div class="lista">
+		<%
+		for (Detalhe detalhe : lista) {
+		%>
 			
-		<div class="Lista Produtos">
+		<div class="item">
 			<form action="removerPedido" >
 				<p><%= detalhe.getPedido().getNome() %></p>
 				<p><%= detalhe.getProduto().getNome() %></p>
@@ -33,7 +35,8 @@
 				<input type="submit" value="Remover pedido">				
 			</form>
 		</div>
-	<% } %>
+		<% } %>
+	</div>
 	
 </body>
 </html>

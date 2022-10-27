@@ -32,10 +32,6 @@ body {
     border: black 2px solid;
     width: 95%;
     padding: 20px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
     justify-content: center;
     align-items: center;
     display: flex;
