@@ -19,17 +19,17 @@
 	<div class="cadastro_div">
 		<form method="post" action="produto">
 			<label>Nome do Produto</label><p/>
-			<input type="text" name="nomeProduto"><p/>
+			<input type="text" name="nomeProduto" required><p/>
 			
 			<label>Descrição do Produto</label><p/>
-			<input type="text" name="descricaoProduto"><p/>
+			<input type="text" name="descricaoProduto" required><p/>
 			
 			<label>Preco do Produto</label><p/>
 			
-			<input type="number" name="precoProduto"><p/>
+			<input type="number" name="precoProduto" required><p/>
 			
 			<label>Categoria</label><p/>
-			<select name="categoria">
+			<select name="categoria" required>
 				<option value="" disabled="disabled">-- Selecione uma Opção --</option>
 				
 				<% for(Integer id : listaID) { %>

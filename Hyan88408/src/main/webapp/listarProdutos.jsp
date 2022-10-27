@@ -25,10 +25,10 @@
 			<div class="container">
 				<div class="cliente">
 					<label>Nome</label><p>
-					<input type="text" name="nomeContato"><p>
+					<input type="text" name="nomeContato" required><p>
 					<label>Endereco</label><p>
-					<input type="text" name="endereco"><p>
-					<input type="date" name="data">
+					<input type="text" name="endereco" required><p>
+					<input type="date" name="data" required>
 				</div>
 			</div>
 			
@@ -43,7 +43,7 @@
 						<p><%= produto.getCategoria().getCategoria() %></p>
 						<label>Quantidade</label>
 						<input type="hidden" name="produto" value="<%= produto.getId() %>">
-						<input type="number" name="quantidade">
+						<input type="number" name="quantidade" required>
 						<input type="submit" value="Adicionar ao pedido" class="button">
 					</div>
 				
