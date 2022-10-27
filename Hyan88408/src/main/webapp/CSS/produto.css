@@ -23,18 +23,14 @@ body {
 }
 
 .lista_produto {
+	width: 80vw;
     display: flexbox;
-    flex-direction: row;
-    justify-content: right;
-    align-content: space-between;
+    justify-content: space-around;
     margin: 10px;
 }
 
 .produto {
-    display: inline-flexbox;
-    flex-direction: column;
-    justify-content: center;
-    flex-direction: column;
+	text-align: center;
     margin: 3px;
     padding: 2%;
     height: 30vh;
