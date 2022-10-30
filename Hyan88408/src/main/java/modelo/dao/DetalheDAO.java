@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import modelo.conexao.Conexao;
 import modelo.entidades.Detalhe;
 import modelo.entidades.Pedido;
 import modelo.entidades.Produto;
@@ -15,7 +14,6 @@ public class DetalheDAO extends DAO{
 	Pedido pedido;
 	
 	public void inserir(Detalhe detalhe) {
-		Conexao conexao = new Conexao();
 		connection = conexao.conectar();
 		sql = "INSERT INTO JAVA_PEDIDODETALHE (ID, PEDIDO_ID, PRODUTO_ID, QUANTIDADE, TOTAL) VALUES (DETALHE_SEQUENCE.NEXTVAL, ?, ?, ?, ?)";
 	
@@ -39,7 +37,6 @@ public class DetalheDAO extends DAO{
 	public List<Detalhe> listar () {
 		
 		List<Detalhe> lista = new ArrayList<Detalhe>();
-		Conexao conexao = new Conexao();
 		Detalhe detalhe;
 		
 		connection = conexao.conectar();
@@ -81,7 +78,6 @@ public class DetalheDAO extends DAO{
 
 	public void remover(Detalhe detalhe) {
 		
-		Conexao conexao = new Conexao();
 		connection = conexao.conectar();
 		sql = "DELETE FROM JAVA_PEDIDODETALHE WHERE PEDIDO_ID = ? ";
 		

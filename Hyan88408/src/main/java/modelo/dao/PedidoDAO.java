@@ -2,14 +2,12 @@ package modelo.dao;
 
 import java.sql.SQLException;
 
-import modelo.conexao.Conexao;
 import modelo.entidades.Pedido;
 
 public class PedidoDAO extends DAO {
 	
 	public void inserir (Pedido pedido) {
 		
-		Conexao conexao = new Conexao();
 		connection = conexao.conectar();
 		sql = "INSERT INTO JAVA_PEDIDO (PEDIDO_ID, NOME_CONTATO, ENDERECO_CONTATO, DATA) VALUES (PEDIDO_SEQUENCE.NEXTVAL, ?, ?, TO_DATE( ? , 'YYYY/MM/DD')) ";
 		
@@ -30,7 +28,6 @@ public class PedidoDAO extends DAO {
 	
 	public void remover(Pedido pedido) {
 		
-		Conexao conexao = new Conexao();
 		connection = conexao.conectar();
 		sql = "DELETE FROM JAVA_PEDIDO WHERE PEDIDO_ID = ?";
 		
@@ -50,7 +47,6 @@ public class PedidoDAO extends DAO {
 	public Pedido buscar() {
 		
 		Pedido pedido = new Pedido();
-		Conexao conexao = new Conexao();
 		connection = conexao.conectar();
 		sql = "SELECT * FROM JAVA_PEDIDO WHERE PEDIDO_ID = (SELECT MAX(PEDIDO_ID) FROM JAVA_PEDIDO)";
 		

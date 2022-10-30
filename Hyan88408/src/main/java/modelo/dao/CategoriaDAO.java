@@ -4,13 +4,11 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-import modelo.conexao.Conexao;
 import modelo.entidades.Categoria;
 
 public class CategoriaDAO extends DAO{
 
 	public void inserir(Categoria categoria) {
-		Conexao conexao = new Conexao();
 		connection = conexao.conectar();
 		sql = "INSERT INTO JAVA_CATEGORIA (CATEGORIA_ID, CATEGORIA) VALUES (CATEGORIA_SEQUENCE.NEXTVAL, ?)";
 		
@@ -33,7 +31,6 @@ public class CategoriaDAO extends DAO{
 		
 		Map<Integer, Categoria> lista = new HashMap<Integer, Categoria>();
 		Categoria categoria;
-		Conexao conexao = new Conexao();
 		
 		connection = conexao.conectar();
 		sql = "SELECT * FROM JAVA_CATEGORIA";
